@@ -1,0 +1,22 @@
+---
+- name: copy repo
+  copy:
+    src: influxdb.repo
+    dest: /etc/yum.repos.d/influxdb.repo
+- name: install package influxdb
+  yum:
+    name: influxdb
+    state: latest
+- name: start the influxdb service
+  service:
+    name: inlfuxdb
+    state: started
+    enabled: yes
+- name: Allow http/https
+  command: firewall-cmd --add-port=8086/tcp --permanent
+- name: Allow http/https
+  command: firewall-cmd --add-port=8088/tcp --permanent
+- name: Allow http/https
+  command: firewall-cmd --reload
+- name: test db connectiviy
+  command: curl -G http://localhost:8086/query --data-urlencode "q=SHOW DATABASES"
