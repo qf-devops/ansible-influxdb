@@ -11,3 +11,8 @@
   apt:
     name: influxdb2
     state: present
+- name: start the influxdb service
+  service:
+    name: inlfuxdb
+    state: started
+    enabled: yes
