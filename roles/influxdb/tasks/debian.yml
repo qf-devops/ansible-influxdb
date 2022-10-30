@@ -1,0 +1,13 @@
+---
+- name : apt key
+  apt_key:
+    url: "https://repos.influxdata.com/influxdb.key"
+    state: present
+- name : repo setup
+  apt_repository:
+    repo: deb https://repos.influxdata.com/ubuntu jammy stable
+    state: present
+- name: Install influxdb
+  apt:
+    name: influxdb2
+    state: present
