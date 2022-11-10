@@ -1,0 +1,41 @@
+ 3  sudo curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+    4  echo "deb https://repos.influxdata.com/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+    5  sudo apt update
+    6  sudo apt install influxdb2
+    7  sudo systemctl enable --now influxdb
+    8  sudo systemctl status influxdb
+
+   10  influxd version
+   11  cd
+   12  cd /etc/
+   13  cd default/
+   14  ls
+   15  cat influxdb2
+   16  cd
+   17  cd /etc/influxdb/
+   18  ls -lrt
+   20  cat config.toml 
+   21  influxd -h
+   22  sudo openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb-selfsigned.key -out /etc/ssl/influxdb-selfsigned.crt -days 10
+   23  ls -lrt
+   24  vi config.toml 
+   25  sudo systemctl restart influxdb
+   26  vi config.toml 
+   27  sudo systemctl restart influxdb
+   28  vi config.toml 
+   29  sudo systemctl restart influxdb
+   30  chown influxdb:influxdb /etc/ssl/influxdb-selfsigned.*
+   31  sudo systemctl restart influxdb
+   32  sudo systemctl status influxdb
+   33  cat config.toml 
+   34  cat /etc/default/influxdb2 
+
+
+root@ip-172-31-13-183:/etc/influxdb# cat config.toml 
+bolt-path = "/var/lib/influxdb/influxd.bolt"
+engine-path = "/var/lib/influxdb/engine"
+tls-cert = "/etc/ssl/influxdb-selfsigned.crt"
+tls-key = "/etc/ssl/influxdb-selfsigned.key"
+root@ip-172-31-13-183:/etc/influxdb# cat /etc/default/influxdb2 
+INFLUXD_CONFIG_PATH=/etc/influxdb/config.toml
+root@ip-172-31-13-183:/etc/influxdb# history
