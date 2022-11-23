@@ -17,7 +17,7 @@ jobs:
     runs-on: self-hosted
     env: 
       VAR: "YVARS"
-    
+      HTTP_PROXY: "http://my.proxy:8080"
     steps:
       - run: env
-      - run: echo $VAR
+      - run: echo $HTTP_PROXY
