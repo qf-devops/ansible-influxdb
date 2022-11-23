@@ -15,8 +15,9 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    env: 
+      VAR: "YVARS"
+    
     steps:
       - run: env
       - run: echo $VAR
-        env: 
-          VAR: "YVARS"
