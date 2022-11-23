@@ -21,4 +21,4 @@ jobs:
       HTTPS_PROXY: "http://my.proxy:8080"
     steps:
       - run: env
-      - run: echo $HTTP_PROXY
+      - run: echo $HTTPS_PROXY
