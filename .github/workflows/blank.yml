@@ -18,3 +18,5 @@ jobs:
     steps:
       - run: env
       - run: echo $VAR
+        env: 
+          VAR: "YVARS"
