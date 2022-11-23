@@ -17,10 +17,7 @@ jobs:
     runs-on: self-hosted
     env: 
       VAR: "YVARS"
-      HTTP_PROXY: "http://my.proxy:8080"
-      HTTPS_PROXY: "http://my.proxy:8080"
     steps:
       - run: env
-      - run: echo $HTTPS_PROXY
       - name: Install Poetry
         uses: snok/install-poetry@v1
